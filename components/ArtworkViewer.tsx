@@ -58,6 +58,7 @@ export function ArtworkViewer({
           setIdx(startIndex);
           setOpen(true);
         }}
+        data-cursor="view"
         className="group relative block w-full cursor-zoom-in overflow-hidden border border-white/10 bg-white/5"
         aria-label={`Expand ${hero.title}`}
       >

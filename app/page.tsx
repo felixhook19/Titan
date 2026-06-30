@@ -1,19 +1,22 @@
 import Link from "next/link";
 import { artworks } from "@/lib/artworks";
-import { ArtworkCard } from "@/components/ArtworkCard";
 import { HeroShowcase } from "@/components/HeroShowcase";
+import { Marquee } from "@/components/Marquee";
+import { Filmstrip } from "@/components/Filmstrip";
 import { Reveal } from "@/components/Reveal";
 
 export default function HomePage() {
-  const featured = artworks.filter((a) => a.available).slice(0, 6);
+  const marqueeItems = artworks.map((a) => a.title);
 
   return (
     <>
       <HeroShowcase />
 
+      <Marquee items={marqueeItems} />
+
       {/* Value props */}
-      <section className="relative z-10 border-y border-white/10 bg-white/[0.02]">
-        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-10 sm:grid-cols-3">
+      <section className="relative z-10 bg-white/[0.02]">
+        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 sm:grid-cols-3">
           {[
             {
               title: "Authenticated",
@@ -36,14 +39,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured works */}
-      <section className="relative z-10 mx-auto max-w-6xl px-5 py-16">
-        <Reveal className="mb-8 flex items-end justify-between">
+      {/* Horizontal filmstrip showcase */}
+      <section className="relative z-10 border-t border-white/10 py-16">
+        <Reveal className="mx-auto mb-8 flex max-w-6xl items-end justify-between px-5">
           <div>
             <p className="text-sm uppercase tracking-[0.25em] text-accent">
-              Featured
+              The Collection
             </p>
-            <h2 className="mt-2 font-display text-4xl">Latest work</h2>
+            <h2 className="mt-2 font-display text-4xl">Drag to explore</h2>
           </div>
           <Link
             href="/gallery"
@@ -53,12 +56,8 @@ export default function HomePage() {
           </Link>
         </Reveal>
 
-        <div className="grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-3">
-          {featured.map((a, i) => (
-            <Reveal key={a.slug} delay={(i % 3) * 0.08}>
-              <ArtworkCard artwork={a} />
-            </Reveal>
-          ))}
+        <div className="px-5">
+          <Filmstrip />
         </div>
       </section>
 

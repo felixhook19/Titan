@@ -4,7 +4,11 @@ import { formatPrice } from "@/lib/artworks";
 
 export function ArtworkCard({ artwork }: { artwork: Artwork }) {
   return (
-    <Link href={`/art/${artwork.slug}`} className="group block">
+    <Link
+      href={`/art/${artwork.slug}`}
+      data-cursor="view"
+      className="group block"
+    >
       <div className="relative overflow-hidden border border-white/10 bg-white/5 transition-shadow duration-500 group-hover:shadow-[0_0_50px_-10px_rgba(180,241,30,0.4)]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

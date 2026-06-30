@@ -1,8 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { artworks, formatPrice } from "@/lib/artworks";
 
 const slides = artworks.filter((a) => a.available).slice(0, 5);
@@ -11,6 +17,17 @@ const INTERVAL = 6000;
 export function HeroShowcase() {
   const [i, setI] = useState(0);
   const reduce = useReducedMotion();
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const imgY = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "16%"]);
+  const contentY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", reduce ? "0%" : "-12%"]
+  );
 
   useEffect(() => {
     const t = setInterval(() => setI((p) => (p + 1) % slides.length), INTERVAL);
@@ -20,34 +37,42 @@ export function HeroShowcase() {
   const cur = slides[i];
 
   return (
-    <section className="relative h-[88vh] min-h-[560px] w-full overflow-hidden">
-      {/* Rotating, slowly-zooming artwork backdrop */}
-      <AnimatePresence>
-        <motion.div
-          key={cur.slug}
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={cur.image}
-            alt={cur.title}
-            className={`h-full w-full object-cover ${
-              reduce ? "" : "hero-kenburns"
-            }`}
-          />
-        </motion.div>
-      </AnimatePresence>
+    <section
+      ref={ref}
+      className="relative h-[88vh] min-h-[560px] w-full overflow-hidden"
+    >
+      {/* Rotating, slowly-zooming artwork backdrop (with scroll parallax) */}
+      <motion.div className="absolute inset-0" style={{ y: imgY }}>
+        <AnimatePresence>
+          <motion.div
+            key={cur.slug}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={cur.image}
+              alt={cur.title}
+              className={`h-full w-full scale-110 object-cover ${
+                reduce ? "" : "hero-kenburns"
+              }`}
+            />
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
 
       {/* Legibility scrims */}
       <div className="absolute inset-0 bg-gradient-to-t from-canvas via-canvas/45 to-canvas/30" />
       <div className="absolute inset-0 bg-gradient-to-r from-canvas/85 via-canvas/30 to-transparent" />
 
       {/* Headline */}
-      <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-5">
+      <motion.div
+        style={{ y: contentY }}
+        className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-5"
+      >
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,7 +111,7 @@ export function HeroShowcase() {
             The studio
           </Link>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Now-showing caption + progress ticks */}
       <div className="absolute bottom-6 left-0 right-0 z-10 mx-auto flex max-w-6xl items-end justify-between gap-4 px-5">
