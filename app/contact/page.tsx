@@ -77,7 +77,14 @@ export default function ContactPage() {
         </div>
         <div>
           <p className="uppercase tracking-widest text-stone">Instagram</p>
-          <p className="mt-1">@gallerie.titan</p>
+          <a
+            href="https://www.instagram.com/gallerie.titan/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-1 inline-block hover:text-accent"
+          >
+            @gallerie.titan
+          </a>
         </div>
         <div>
           <p className="uppercase tracking-widest text-stone">Studio</p>
