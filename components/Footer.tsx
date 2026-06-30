@@ -40,20 +40,19 @@ export function Footer() {
           <p className="mt-3 text-sm text-stone">
             New works and private viewings, twice a month.
           </p>
-          <form className="mt-3 flex gap-2" action="/contact">
+          <div className="mt-3 flex gap-2">
             <input
               type="email"
-              required
               placeholder="you@email.com"
               className="w-full border border-black/15 bg-transparent px-3 py-2 text-sm outline-none focus:border-accent"
             />
-            <button
-              type="submit"
+            <Link
+              href="/contact"
               className="bg-ink px-4 py-2 text-sm text-canvas transition-colors hover:bg-accent"
             >
               Join
-            </button>
-          </form>
+            </Link>
+          </div>
         </div>
       </div>
 
