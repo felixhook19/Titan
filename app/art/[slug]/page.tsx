@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { artworks, getArtwork, formatPrice } from "@/lib/artworks";
 import { ArtworkCard } from "@/components/ArtworkCard";
 import { AddToCartButton } from "@/components/AddToCartButton";
+import { ArtworkViewer } from "@/components/ArtworkViewer";
+import { Reveal } from "@/components/Reveal";
 
 export function generateStaticParams() {
   return artworks.map((a) => ({ slug: a.slug }));
@@ -45,14 +47,15 @@ export default async function ArtworkPage({
       </nav>
 
       <div className="grid gap-10 md:grid-cols-2">
-        <div className="overflow-hidden border border-white/10 bg-white/5">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={art.image}
-            alt={art.title}
-            className="w-full object-cover"
-          />
-        </div>
+        <ArtworkViewer
+          items={artworks.map((a) => ({
+            slug: a.slug,
+            title: a.title,
+            image: a.image,
+            medium: a.medium,
+          }))}
+          startSlug={art.slug}
+        />
 
         <div className="md:pt-6">
           <p className="text-sm uppercase tracking-[0.25em] text-accent">
@@ -96,7 +99,9 @@ export default async function ArtworkPage({
           <h2 className="mb-8 font-display text-3xl">More in {art.category}</h2>
           <div className="grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-3">
             {related.map((a, i) => (
-              <ArtworkCard key={a.slug} artwork={a} index={i} />
+              <Reveal key={a.slug} delay={(i % 3) * 0.06}>
+                <ArtworkCard artwork={a} />
+              </Reveal>
             ))}
           </div>
         </section>

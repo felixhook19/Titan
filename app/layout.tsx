@@ -4,6 +4,7 @@ import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SmoothScroll } from "@/components/SmoothScroll";
 
 const serif = Fraunces({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className="relative min-h-screen flex flex-col">
         <div className="atmosphere" aria-hidden />
         <div className="vignette" aria-hidden />
+        <SmoothScroll />
         <CartProvider>
           <Header />
           <main className="relative z-10 flex-1">{children}</main>

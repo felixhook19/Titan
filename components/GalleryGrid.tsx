@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { artworks, categories } from "@/lib/artworks";
 import { ArtworkCard } from "@/components/ArtworkCard";
+import { Reveal } from "@/components/Reveal";
 
 type Sort = "featured" | "price-asc" | "price-desc";
 
@@ -60,7 +61,9 @@ export function GalleryGrid() {
       ) : (
         <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-3">
           {visible.map((a, i) => (
-            <ArtworkCard key={a.slug} artwork={a} index={i} />
+            <Reveal key={a.slug} delay={(i % 3) * 0.06}>
+              <ArtworkCard artwork={a} />
+            </Reveal>
           ))}
         </div>
       )}
