@@ -20,7 +20,7 @@ export type Artwork = {
 // update the `image` field's extension to swap it in.
 // BASE_PATH prefixes raw <img> srcs so they resolve under GitHub Pages' /Titan path.
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
-const img = (slug: string) => `${BASE_PATH}/artwork/${slug}.svg`;
+const img = (file: string) => `${BASE_PATH}/artwork/${file}`;
 
 export const artworks: Artwork[] = [
   {
@@ -32,7 +32,7 @@ export const artworks: Artwork[] = [
     dimensions: "110 × 100 cm",
     price: 1850,
     category: "Mixed Media",
-    image: img("static-bloom"),
+    image: img("static-bloom.png"),
     description:
       "A spectral figure surfaces from a chromatic undergrowth of pink, ochre and acid green. Built up in dense, restless layers, Static Bloom holds the moment a form half-emerges from noise — present and dissolving at once.",
     available: true,
@@ -46,7 +46,7 @@ export const artworks: Artwork[] = [
     dimensions: "60 × 60 cm",
     price: 1450,
     category: "Painting",
-    image: img("revenant"),
+    image: img("revenant.png"),
     description:
       "A face caught mid-dissolve, rendered in bruised greens and cold blue shadow. Revenant stares back from somewhere between portrait and apparition — a likeness remembered rather than seen.",
     available: true,
@@ -60,7 +60,7 @@ export const artworks: Artwork[] = [
     dimensions: "70 × 70 cm",
     price: 720,
     category: "Digital",
-    image: img("chlorophyll-fracture"),
+    image: img("chlorophyll-fracture.png"),
     description:
       "Shards of marbled green erupt across a field of pure acid chartreuse. Sharp, synthetic and loud, Chlorophyll Fracture is digital painting at full volume.",
     available: true,
@@ -75,7 +75,7 @@ export const artworks: Artwork[] = [
     dimensions: "60 × 75 cm",
     price: 760,
     category: "Digital",
-    image: img("permafrost"),
+    image: img("permafrost.png"),
     description:
       "A face suspended in ice, features blurred beneath frost and dark sediment. Permafrost is cold, quiet and claustrophobic — a portrait held in suspension.",
     available: true,
@@ -90,7 +90,7 @@ export const artworks: Artwork[] = [
     dimensions: "130 × 90 cm",
     price: 2200,
     category: "Painting",
-    image: img("emerald-veil"),
+    image: img("emerald-veil.svg"),
     description:
       "Heavy folds of emerald fall like stage curtains while a lone figure ascends toward a small red aperture of light. Emerald Veil is the largest work in the collection — theatrical, hushed and strange.",
     available: true,
@@ -104,7 +104,7 @@ export const artworks: Artwork[] = [
     dimensions: "90 × 90 cm",
     price: 1680,
     category: "Mixed Media",
-    image: img("ignition"),
+    image: img("ignition.png"),
     description:
       "A vortex of magenta and violet spirals around a single red flame and a watching eye. Ignition is pure centrifugal energy — colour pulled into a burning core.",
     available: true,
@@ -118,7 +118,7 @@ export const artworks: Artwork[] = [
     dimensions: "60 × 60 cm",
     price: 690,
     category: "Digital",
-    image: img("porcelain"),
+    image: img("porcelain.png"),
     description:
       "A pale, doll-like visage framed by ornate green and gold filigree, eyes heavy with kohl. Porcelain pushes beauty toward the uncanny — decorative, fragile and a little haunted.",
     available: true,
@@ -133,7 +133,7 @@ export const artworks: Artwork[] = [
     dimensions: "70 × 80 cm",
     price: 1320,
     category: "Painting",
-    image: img("gnash"),
+    image: img("gnash.png"),
     description:
       "Teeth bared from a speckled dark of teal and violet, Gnash is the rawest work here — a grimace caught at the edge of a scream, equal parts grotesque and alive.",
     available: false,
@@ -147,7 +147,7 @@ export const artworks: Artwork[] = [
     dimensions: "80 × 80 cm",
     price: 1540,
     category: "Mixed Media",
-    image: img("idol"),
+    image: img("idol.png"),
     description:
       "A weathered, symmetrical mask gazes out with turquoise eyes from cracked earth tones. Idol feels excavated rather than painted — a relic of some invented mythology.",
     available: true,
@@ -161,7 +161,7 @@ export const artworks: Artwork[] = [
     dimensions: "100 × 100 cm",
     price: 1760,
     category: "Painting",
-    image: img("augur"),
+    image: img("augur.svg"),
     description:
       "Two calligraphic forms — part bird, part smoke — circle one another across a field of olive and bone. Augur is gestural and fluid, an omen read in a single sweep of the hand.",
     available: true,
