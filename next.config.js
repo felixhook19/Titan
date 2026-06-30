@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
-const basePath = process.env.PAGES_BASE_PATH || "";
+// Empty for a custom domain served at root; "/" is normalised to "".
+const rawBasePath = process.env.PAGES_BASE_PATH || "";
+const basePath = rawBasePath === "/" ? "" : rawBasePath;
 
 const nextConfig = {
   // Static HTML export so the site can be served from GitHub Pages / any CDN.

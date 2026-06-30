@@ -40,9 +40,8 @@ jobs:
         run: npm ci
 
       - name: Build static site
-        env:
-          # Project pages are served from /<repo>; build assets with that prefix.
-          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        # Served at the root of the custom domain (gallerietitan.co.uk), so no
+        # base path. The public/CNAME file tells GitHub Pages the domain.
         run: npm run build
 
       - name: Upload artifact
