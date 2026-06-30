@@ -12,23 +12,20 @@ export default function CartPage() {
       <h1 className="font-display text-5xl">Your cart</h1>
 
       {items.length === 0 ? (
-        <div className="mt-10 border border-dashed border-black/15 px-6 py-20 text-center">
+        <div className="mt-10 border border-dashed border-white/15 px-6 py-20 text-center">
           <p className="text-stone">Your cart is empty.</p>
-          <Link
-            href="/gallery"
-            className="mt-6 inline-block bg-ink px-7 py-3 text-sm uppercase tracking-widest text-canvas transition-colors hover:bg-accent"
-          >
+          <Link href="/gallery" className="btn btn-primary mt-6">
             Browse the gallery
           </Link>
         </div>
       ) : (
         <div className="mt-10 grid gap-10 lg:grid-cols-3">
-          <ul className="lg:col-span-2 divide-y divide-black/10 border-y border-black/10">
+          <ul className="divide-y divide-white/10 border-y border-white/10 lg:col-span-2">
             {items.map((item) => (
               <li key={item.slug} className="flex gap-4 py-5">
                 <Link
                   href={`/art/${item.slug}`}
-                  className="h-24 w-20 shrink-0 overflow-hidden bg-black/5"
+                  className="h-24 w-20 shrink-0 overflow-hidden border border-white/10 bg-white/5"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -55,7 +52,7 @@ export default function CartPage() {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center border border-black/15">
+                    <div className="flex items-center border border-white/15">
                       <button
                         aria-label="Decrease quantity"
                         onClick={() => setQty(item.slug, item.qty - 1)}
@@ -84,7 +81,7 @@ export default function CartPage() {
             ))}
           </ul>
 
-          <aside className="h-fit border border-black/10 bg-white/40 p-6">
+          <aside className="h-fit border border-white/10 bg-white/[0.02] p-6">
             <h2 className="font-display text-2xl">Summary</h2>
             <dl className="mt-5 space-y-3 text-sm">
               <div className="flex justify-between">
@@ -99,15 +96,12 @@ export default function CartPage() {
                 <dt className="text-stone">Shipping</dt>
                 <dd>Free</dd>
               </div>
-              <div className="flex justify-between border-t border-black/10 pt-3 text-base font-medium">
+              <div className="flex justify-between border-t border-white/10 pt-3 text-base font-medium">
                 <dt>Total</dt>
-                <dd>{formatPrice(subtotal)}</dd>
+                <dd className="text-accent">{formatPrice(subtotal)}</dd>
               </div>
             </dl>
-            <Link
-              href="/checkout"
-              className="mt-6 block bg-ink px-6 py-3 text-center text-sm uppercase tracking-widest text-canvas transition-colors hover:bg-accent"
-            >
+            <Link href="/checkout" className="btn btn-primary mt-6 w-full text-center">
               Checkout
             </Link>
             <Link

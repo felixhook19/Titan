@@ -4,7 +4,7 @@ import { GalleryGrid } from "@/components/GalleryGrid";
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "Browse original paintings, photography, sculpture and limited-edition prints available at Atelier.",
+    "Browse original paintings, mixed media and limited-edition digital works available at TITAN.",
 };
 
 export default function GalleryPage() {

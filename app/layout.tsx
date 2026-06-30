@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
-const serif = Cormorant_Garamond({
+const serif = Fraunces({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-cormorant",
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
 });
 
 const sans = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: {
-    default: "Atelier — Original Artwork & Limited Editions",
-    template: "%s — Atelier",
+    default: "TITAN — Contemporary Art",
+    template: "%s — TITAN",
   },
   description:
-    "Atelier is an online gallery of original paintings, photography, sculpture and limited-edition prints from a curated roster of contemporary artists.",
+    "TITAN is a gallery of original paintings, mixed media and limited-edition digital works — dark, psychedelic and expressionistic art from the studio of Titan.",
 };
 
 export default function RootLayout({
@@ -29,10 +30,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
-      <body className="min-h-screen flex flex-col">
+      <body className="relative min-h-screen flex flex-col">
+        <div className="atmosphere" aria-hidden />
+        <div className="vignette" aria-hidden />
         <CartProvider>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="relative z-10 flex-1">{children}</main>
           <Footer />
         </CartProvider>
       </body>

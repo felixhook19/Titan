@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="augur-g0"><stop offset="0%" stop-color="#0c0c06" stop-opacity="1"/><stop offset="100%" stop-color="#0c0c06" stop-opacity="0"/></radialGradient>
+    <radialGradient id="augur-g1"><stop offset="0%" stop-color="#ece9da" stop-opacity="1"/><stop offset="100%" stop-color="#ece9da" stop-opacity="0"/></radialGradient>
+    <radialGradient id="augur-g2"><stop offset="0%" stop-color="#6f8f3a" stop-opacity="1"/><stop offset="100%" stop-color="#6f8f3a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="augur-g3"><stop offset="0%" stop-color="#6a2f8a" stop-opacity="1"/><stop offset="100%" stop-color="#6a2f8a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="augur-g4"><stop offset="0%" stop-color="#0c0c06" stop-opacity="1"/><stop offset="100%" stop-color="#0c0c06" stop-opacity="0"/></radialGradient>
+    <filter id="augur-blur"><feGaussianBlur stdDeviation="48"/></filter>
+    <filter id="augur-grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.14"/></feComponentTransfer><feComposite operator="in" in2="SourceGraphic"/></filter>
+    <radialGradient id="augur-vig" cx="50%" cy="42%" r="75%"><stop offset="55%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.65"/></radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#26280f"/>
+  <g filter="url(#augur-blur)">
+      <circle cx="330" cy="400" r="300" fill="url(#augur-g0)" opacity="0.85"/>
+      <circle cx="520" cy="640" r="300" fill="url(#augur-g1)" opacity="0.7"/>
+      <circle cx="400" cy="520" r="460" fill="url(#augur-g2)" opacity="0.5"/>
+      <circle cx="560" cy="360" r="160" fill="url(#augur-g3)" opacity="0.55"/>
+      <circle cx="560" cy="700" r="260" fill="url(#augur-g4)" opacity="0.8"/>
+      
+  </g>
+  <rect width="800" height="1000" filter="url(#augur-grain)"/>
+  <rect width="800" height="1000" fill="url(#augur-vig)"/>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="static-bloom-g0"><stop offset="0%" stop-color="#d8407e" stop-opacity="1"/><stop offset="100%" stop-color="#d8407e" stop-opacity="0"/></radialGradient>
+    <radialGradient id="static-bloom-g1"><stop offset="0%" stop-color="#a6e24a" stop-opacity="1"/><stop offset="100%" stop-color="#a6e24a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="static-bloom-g2"><stop offset="0%" stop-color="#d9a23a" stop-opacity="1"/><stop offset="100%" stop-color="#d9a23a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="static-bloom-g3"><stop offset="0%" stop-color="#4f9a5f" stop-opacity="1"/><stop offset="100%" stop-color="#4f9a5f" stop-opacity="0"/></radialGradient>
+    <radialGradient id="static-bloom-g4"><stop offset="0%" stop-color="#e7ecd8" stop-opacity="1"/><stop offset="100%" stop-color="#e7ecd8" stop-opacity="0"/></radialGradient>
+    <filter id="static-bloom-blur"><feGaussianBlur stdDeviation="48"/></filter>
+    <filter id="static-bloom-grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.14"/></feComponentTransfer><feComposite operator="in" in2="SourceGraphic"/></filter>
+    <radialGradient id="static-bloom-vig" cx="50%" cy="42%" r="75%"><stop offset="55%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.65"/></radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#0c0a0c"/>
+  <g filter="url(#static-bloom-blur)">
+      <circle cx="250" cy="360" r="360" fill="url(#static-bloom-g0)" opacity="0.85"/>
+      <circle cx="520" cy="300" r="420" fill="url(#static-bloom-g1)" opacity="0.7"/>
+      <circle cx="360" cy="680" r="380" fill="url(#static-bloom-g2)" opacity="0.6"/>
+      <circle cx="600" cy="720" r="320" fill="url(#static-bloom-g3)" opacity="0.6"/>
+      <circle cx="400" cy="480" r="120" fill="url(#static-bloom-g4)" opacity="0.5"/>
+      
+  </g>
+  <rect width="800" height="1000" filter="url(#static-bloom-grain)"/>
+  <rect width="800" height="1000" fill="url(#static-bloom-vig)"/>
+</svg>

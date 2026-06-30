@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="gnash-g0"><stop offset="0%" stop-color="#1e6a60" stop-opacity="1"/><stop offset="100%" stop-color="#1e6a60" stop-opacity="0"/></radialGradient>
+    <radialGradient id="gnash-g1"><stop offset="0%" stop-color="#5a2f8a" stop-opacity="1"/><stop offset="100%" stop-color="#5a2f8a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="gnash-g2"><stop offset="0%" stop-color="#0c1414" stop-opacity="1"/><stop offset="100%" stop-color="#0c1414" stop-opacity="0"/></radialGradient>
+    <radialGradient id="gnash-g3"><stop offset="0%" stop-color="#163a36" stop-opacity="1"/><stop offset="100%" stop-color="#163a36" stop-opacity="0"/></radialGradient>
+    <radialGradient id="gnash-glow"><stop offset="0%" stop-color="#b6d04a" stop-opacity="0.95"/><stop offset="60%" stop-color="#b6d04a" stop-opacity="0.25"/><stop offset="100%" stop-color="#b6d04a" stop-opacity="0"/></radialGradient>
+    <filter id="gnash-blur"><feGaussianBlur stdDeviation="48"/></filter>
+    <filter id="gnash-grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.14"/></feComponentTransfer><feComposite operator="in" in2="SourceGraphic"/></filter>
+    <radialGradient id="gnash-vig" cx="50%" cy="42%" r="75%"><stop offset="55%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.65"/></radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#0a0f0f"/>
+  <g filter="url(#gnash-blur)">
+      <circle cx="400" cy="440" r="460" fill="url(#gnash-g0)" opacity="0.8"/>
+      <circle cx="330" cy="620" r="420" fill="url(#gnash-g1)" opacity="0.7"/>
+      <circle cx="520" cy="360" r="360" fill="url(#gnash-g2)" opacity="0.8"/>
+      <circle cx="470" cy="720" r="360" fill="url(#gnash-g3)" opacity="0.65"/>
+      <circle cx="420" cy="600" r="90" fill="url(#gnash-glow)"/>
+  </g>
+  <rect width="800" height="1000" filter="url(#gnash-grain)"/>
+  <rect width="800" height="1000" fill="url(#gnash-vig)"/>
+</svg>

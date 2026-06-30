@@ -14,35 +14,34 @@ export default function HomePage() {
             <p className="text-sm uppercase tracking-[0.25em] text-accent">
               Contemporary Art Gallery
             </p>
-            <h1 className="mt-4 font-display text-5xl leading-[1.05] md:text-6xl">
-              Original artwork for the spaces you live in.
+            <h1 className="mt-4 font-display text-5xl leading-[1.02] md:text-7xl">
+              Art that
+              <span className="italic text-accent"> stares back.</span>
             </h1>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-stone">
-              A curated collection of paintings, photography, sculpture and
-              limited-edition prints — each one signed, authenticated and
-              shipped insured to your door.
+              TITAN is a collection of dark, psychedelic and expressionistic
+              work — spectral faces, fractured colour and strange mythologies.
+              Each piece is signed, authenticated and shipped insured.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/gallery"
-                className="bg-ink px-7 py-3 text-sm uppercase tracking-widest text-canvas transition-colors hover:bg-accent"
-              >
-                Browse the gallery
+              <Link href="/gallery" className="btn btn-primary">
+                Enter the gallery
               </Link>
-              <Link
-                href="/about"
-                className="border border-black/20 px-7 py-3 text-sm uppercase tracking-widest transition-colors hover:border-accent hover:text-accent"
-              >
-                Our story
+              <Link href="/about" className="btn btn-ghost">
+                The studio
               </Link>
             </div>
           </div>
 
-          <div className="fade-up grid grid-cols-2 gap-4" style={{ animationDelay: "120ms" }}>
+          <div
+            className="fade-up grid grid-cols-2 gap-4"
+            style={{ animationDelay: "120ms" }}
+          >
             {artworks.slice(0, 4).map((a, i) => (
-              <div
+              <Link
                 key={a.slug}
-                className={`overflow-hidden bg-black/5 ${
+                href={`/art/${a.slug}`}
+                className={`group overflow-hidden border border-white/10 bg-white/5 ${
                   i % 2 === 1 ? "mt-8" : ""
                 }`}
               >
@@ -50,16 +49,16 @@ export default function HomePage() {
                 <img
                   src={a.image}
                   alt={a.title}
-                  className="aspect-[3/4] w-full object-cover"
+                  className="aspect-[3/4] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* Value props */}
-      <section className="border-y border-black/10 bg-white/40">
+      <section className="relative z-10 border-y border-white/10 bg-white/[0.02]">
         <div className="mx-auto grid max-w-6xl gap-8 px-5 py-10 sm:grid-cols-3">
           {[
             {
@@ -76,7 +75,7 @@ export default function HomePage() {
             },
           ].map((f) => (
             <div key={f.title}>
-              <h3 className="font-display text-xl">{f.title}</h3>
+              <h3 className="font-display text-xl text-accent">{f.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-stone">{f.body}</p>
             </div>
           ))}
@@ -84,13 +83,13 @@ export default function HomePage() {
       </section>
 
       {/* Featured works */}
-      <section className="mx-auto max-w-6xl px-5 py-16">
+      <section className="relative z-10 mx-auto max-w-6xl px-5 py-16">
         <div className="mb-8 flex items-end justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.25em] text-accent">
               Featured
             </p>
-            <h2 className="mt-2 font-display text-4xl">Recently added</h2>
+            <h2 className="mt-2 font-display text-4xl">Latest work</h2>
           </div>
           <Link
             href="/gallery"
@@ -108,19 +107,18 @@ export default function HomePage() {
       </section>
 
       {/* CTA band */}
-      <section className="bg-ink text-canvas">
+      <section className="relative z-10 border-y border-white/10 bg-surface">
         <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-5 py-16 md:flex-row md:items-center md:justify-between">
           <div>
-            <h2 className="font-display text-4xl">Commission a piece</h2>
-            <p className="mt-3 max-w-md text-canvas/70">
-              Looking for something made for your space? Our artists take a
-              limited number of commissions each year.
+            <h2 className="font-display text-4xl">
+              Commission a piece
+            </h2>
+            <p className="mt-3 max-w-md text-stone">
+              Want something made for your space? Titan takes a limited number of
+              commissions each year — tell us what you have in mind.
             </p>
           </div>
-          <Link
-            href="/contact"
-            className="bg-canvas px-7 py-3 text-sm uppercase tracking-widest text-ink transition-colors hover:bg-accent hover:text-canvas"
-          >
+          <Link href="/contact" className="btn btn-primary">
             Start a commission
           </Link>
         </div>

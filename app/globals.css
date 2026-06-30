@@ -1,17 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-canvas: #f7f5f1;
-  --color-ink: #1a1815;
-  --color-stone: #6b6660;
-  --color-accent: #9c3d2e;
-  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --color-canvas: #0b0c0a;
+  --color-surface: #14160f;
+  --color-ink: #ece9e2;
+  --color-stone: #8b8c84;
+  --color-accent: #b4f11e;
+  --color-accent-soft: #d6ff6b;
+  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", sans-serif;
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 html,
@@ -22,26 +24,78 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+::selection {
+  background: var(--color-accent);
+  color: #0b0c0a;
+}
+
 .font-display {
   font-family: var(--font-serif);
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
-/* Subtle reveal animation for grids */
+/* Reusable buttons */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  transition: filter 0.2s ease, background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+.btn-primary {
+  background: var(--color-accent);
+  color: #0b0c0a;
+  font-weight: 500;
+}
+.btn-primary:hover {
+  filter: brightness(1.12);
+}
+.btn-ghost {
+  border: 1px solid color-mix(in srgb, var(--color-ink) 25%, transparent);
+  color: var(--color-ink);
+}
+.btn-ghost:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Atmospheric film grain + vignette overlay */
+.atmosphere {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  mix-blend-mode: soft-light;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    120% 90% at 50% 0%,
+    transparent 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 .fade-up {
-  animation: fade-up 0.6s ease both;
+  animation: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
 a {

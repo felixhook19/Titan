@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="permafrost-g0"><stop offset="0%" stop-color="#d2e7f3" stop-opacity="1"/><stop offset="100%" stop-color="#d2e7f3" stop-opacity="0"/></radialGradient>
+    <radialGradient id="permafrost-g1"><stop offset="0%" stop-color="#8fbace" stop-opacity="1"/><stop offset="100%" stop-color="#8fbace" stop-opacity="0"/></radialGradient>
+    <radialGradient id="permafrost-g2"><stop offset="0%" stop-color="#20303b" stop-opacity="1"/><stop offset="100%" stop-color="#20303b" stop-opacity="0"/></radialGradient>
+    <radialGradient id="permafrost-g3"><stop offset="0%" stop-color="#eef6fc" stop-opacity="1"/><stop offset="100%" stop-color="#eef6fc" stop-opacity="0"/></radialGradient>
+    <radialGradient id="permafrost-g4"><stop offset="0%" stop-color="#101a20" stop-opacity="1"/><stop offset="100%" stop-color="#101a20" stop-opacity="0"/></radialGradient>
+    <filter id="permafrost-blur"><feGaussianBlur stdDeviation="48"/></filter>
+    <filter id="permafrost-grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.14"/></feComponentTransfer><feComposite operator="in" in2="SourceGraphic"/></filter>
+    <radialGradient id="permafrost-vig" cx="50%" cy="42%" r="75%"><stop offset="55%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.65"/></radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#0b1014"/>
+  <g filter="url(#permafrost-blur)">
+      <circle cx="400" cy="440" r="440" fill="url(#permafrost-g0)" opacity="0.85"/>
+      <circle cx="360" cy="520" r="520" fill="url(#permafrost-g1)" opacity="0.6"/>
+      <circle cx="470" cy="700" r="360" fill="url(#permafrost-g2)" opacity="0.75"/>
+      <circle cx="420" cy="380" r="200" fill="url(#permafrost-g3)" opacity="0.6"/>
+      <circle cx="300" cy="640" r="280" fill="url(#permafrost-g4)" opacity="0.7"/>
+      
+  </g>
+  <rect width="800" height="1000" filter="url(#permafrost-grain)"/>
+  <rect width="800" height="1000" fill="url(#permafrost-vig)"/>
+</svg>

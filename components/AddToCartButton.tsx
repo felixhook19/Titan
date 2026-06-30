@@ -12,7 +12,7 @@ export function AddToCartButton({ artwork }: { artwork: Artwork }) {
     return (
       <button
         disabled
-        className="w-full cursor-not-allowed border border-black/15 px-6 py-3 text-sm uppercase tracking-widest text-stone"
+        className="w-full cursor-not-allowed border border-white/15 px-6 py-3 text-sm uppercase tracking-widest text-stone"
       >
         Sold — enquire about commissions
       </button>
@@ -26,7 +26,7 @@ export function AddToCartButton({ artwork }: { artwork: Artwork }) {
         setAdded(true);
         setTimeout(() => setAdded(false), 1800);
       }}
-      className="w-full bg-ink px-6 py-3 text-sm uppercase tracking-widest text-canvas transition-colors hover:bg-accent"
+      className="btn btn-primary w-full"
     >
       {added ? "Added to cart ✓" : "Add to cart"}
     </button>

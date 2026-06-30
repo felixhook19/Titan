@@ -9,7 +9,7 @@ export default function CheckoutPage() {
   const { items, subtotal, clear } = useCart();
   const [placed, setPlaced] = useState(false);
   const [orderId] = useState(
-    () => "ATL-" + Math.floor(100000 + Math.random() * 900000)
+    () => "TTN-" + Math.floor(100000 + Math.random() * 900000)
   );
 
   function handleSubmit(e: React.FormEvent) {
@@ -29,13 +29,10 @@ export default function CheckoutPage() {
         <h1 className="mt-3 font-display text-5xl">Order confirmed</h1>
         <p className="mt-5 text-stone">
           Your order <span className="font-medium text-ink">{orderId}</span> has
-          been received. A confirmation email is on its way, and our team will be
-          in touch about shipping within two business days.
+          been received. A confirmation email is on its way, and the studio will
+          be in touch about shipping within two business days.
         </p>
-        <Link
-          href="/gallery"
-          className="mt-8 inline-block bg-ink px-7 py-3 text-sm uppercase tracking-widest text-canvas transition-colors hover:bg-accent"
-        >
+        <Link href="/gallery" className="btn btn-primary mt-8">
           Continue browsing
         </Link>
       </section>
@@ -46,10 +43,7 @@ export default function CheckoutPage() {
     return (
       <section className="mx-auto max-w-2xl px-5 py-24 text-center">
         <h1 className="font-display text-4xl">Your cart is empty</h1>
-        <Link
-          href="/gallery"
-          className="mt-8 inline-block bg-ink px-7 py-3 text-sm uppercase tracking-widest text-canvas transition-colors hover:bg-accent"
-        >
+        <Link href="/gallery" className="btn btn-primary mt-8">
           Browse the gallery
         </Link>
       </section>
@@ -65,11 +59,7 @@ export default function CheckoutPage() {
       </p>
 
       <div className="mt-10 grid gap-10 lg:grid-cols-3">
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-8 lg:col-span-2"
-          id="checkout-form"
-        >
+        <form onSubmit={handleSubmit} className="space-y-8 lg:col-span-2">
           <Fieldset legend="Contact">
             <Field label="Email" type="email" name="email" required />
             <Field label="Full name" name="name" required />
@@ -85,27 +75,29 @@ export default function CheckoutPage() {
           </Fieldset>
 
           <Fieldset legend="Payment">
-            <Field label="Card number" name="card" placeholder="4242 4242 4242 4242" required />
+            <Field
+              label="Card number"
+              name="card"
+              placeholder="4242 4242 4242 4242"
+              required
+            />
             <div className="grid gap-4 sm:grid-cols-2">
               <Field label="Expiry" name="exp" placeholder="MM / YY" required />
               <Field label="CVC" name="cvc" placeholder="123" required />
             </div>
           </Fieldset>
 
-          <button
-            type="submit"
-            className="w-full bg-ink px-6 py-4 text-sm uppercase tracking-widest text-canvas transition-colors hover:bg-accent"
-          >
+          <button type="submit" className="btn btn-primary w-full">
             Place order · {formatPrice(subtotal)}
           </button>
         </form>
 
-        <aside className="h-fit border border-black/10 bg-white/40 p-6">
+        <aside className="h-fit border border-white/10 bg-white/[0.02] p-6">
           <h2 className="font-display text-2xl">Order</h2>
           <ul className="mt-5 space-y-4">
             {items.map((item) => (
               <li key={item.slug} className="flex gap-3">
-                <div className="h-16 w-12 shrink-0 overflow-hidden bg-black/5">
+                <div className="h-16 w-12 shrink-0 overflow-hidden border border-white/10 bg-white/5">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={item.image}
@@ -125,14 +117,14 @@ export default function CheckoutPage() {
               </li>
             ))}
           </ul>
-          <dl className="mt-6 space-y-2 border-t border-black/10 pt-4 text-sm">
+          <dl className="mt-6 space-y-2 border-t border-white/10 pt-4 text-sm">
             <div className="flex justify-between">
               <dt className="text-stone">Shipping</dt>
               <dd>Free</dd>
             </div>
             <div className="flex justify-between text-base font-medium">
               <dt>Total</dt>
-              <dd>{formatPrice(subtotal)}</dd>
+              <dd className="text-accent">{formatPrice(subtotal)}</dd>
             </div>
           </dl>
         </aside>
@@ -167,7 +159,7 @@ function Field({
       <span className="mb-1 block text-sm text-stone">{label}</span>
       <input
         {...props}
-        className="w-full border border-black/15 bg-transparent px-3 py-2.5 text-sm outline-none focus:border-accent"
+        className="w-full border border-white/15 bg-transparent px-3 py-2.5 text-sm outline-none focus:border-accent"
       />
     </label>
   );

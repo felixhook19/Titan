@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="emerald-veil-g0"><stop offset="0%" stop-color="#1f7440" stop-opacity="1"/><stop offset="100%" stop-color="#1f7440" stop-opacity="0"/></radialGradient>
+    <radialGradient id="emerald-veil-g1"><stop offset="0%" stop-color="#2f9a54" stop-opacity="1"/><stop offset="100%" stop-color="#2f9a54" stop-opacity="0"/></radialGradient>
+    <radialGradient id="emerald-veil-g2"><stop offset="0%" stop-color="#0c3a23" stop-opacity="1"/><stop offset="100%" stop-color="#0c3a23" stop-opacity="0"/></radialGradient>
+    <radialGradient id="emerald-veil-g3"><stop offset="0%" stop-color="#0a2417" stop-opacity="1"/><stop offset="100%" stop-color="#0a2417" stop-opacity="0"/></radialGradient>
+    <radialGradient id="emerald-veil-glow"><stop offset="0%" stop-color="#e6451f" stop-opacity="0.95"/><stop offset="60%" stop-color="#e6451f" stop-opacity="0.25"/><stop offset="100%" stop-color="#e6451f" stop-opacity="0"/></radialGradient>
+    <filter id="emerald-veil-blur"><feGaussianBlur stdDeviation="48"/></filter>
+    <filter id="emerald-veil-grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.14"/></feComponentTransfer><feComposite operator="in" in2="SourceGraphic"/></filter>
+    <radialGradient id="emerald-veil-vig" cx="50%" cy="42%" r="75%"><stop offset="55%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.65"/></radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#06100a"/>
+  <g filter="url(#emerald-veil-blur)">
+      <circle cx="400" cy="560" r="520" fill="url(#emerald-veil-g0)" opacity="0.85"/>
+      <circle cx="380" cy="760" r="420" fill="url(#emerald-veil-g1)" opacity="0.6"/>
+      <circle cx="420" cy="380" r="460" fill="url(#emerald-veil-g2)" opacity="0.8"/>
+      <circle cx="400" cy="880" r="360" fill="url(#emerald-veil-g3)" opacity="0.8"/>
+      <circle cx="600" cy="200" r="110" fill="url(#emerald-veil-glow)"/>
+  </g>
+  <rect width="800" height="1000" filter="url(#emerald-veil-grain)"/>
+  <rect width="800" height="1000" fill="url(#emerald-veil-vig)"/>
+</svg>

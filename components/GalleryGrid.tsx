@@ -22,7 +22,7 @@ export function GalleryGrid() {
 
   return (
     <div>
-      <div className="flex flex-col gap-4 border-b border-black/10 pb-5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap gap-2">
           {categories.map((c) => (
             <button
@@ -30,7 +30,7 @@ export function GalleryGrid() {
               onClick={() => setCategory(c)}
               className={`px-3 py-1.5 text-sm uppercase tracking-widest transition-colors ${
                 category === c
-                  ? "bg-ink text-canvas"
+                  ? "bg-accent text-canvas"
                   : "text-stone hover:text-accent"
               }`}
             >
@@ -44,7 +44,7 @@ export function GalleryGrid() {
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value as Sort)}
-            className="border border-black/15 bg-transparent px-2 py-1.5 text-sm outline-none focus:border-accent"
+            className="border border-white/15 bg-canvas px-2 py-1.5 text-sm text-ink outline-none focus:border-accent"
           >
             <option value="featured">Featured</option>
             <option value="price-asc">Price: low to high</option>

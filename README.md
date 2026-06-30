@@ -1,20 +1,22 @@
-# Atelier — Artwork Store
+# TITAN — Art Store
 
-A modern, fully responsive online gallery for selling original artwork and
-limited editions, built with **Next.js (App Router)**, **TypeScript** and
-**Tailwind CSS v4**.
+A dark, psychedelic online gallery for selling original artwork and limited
+editions, built with **Next.js (App Router)**, **TypeScript** and **Tailwind
+CSS v4**. Designed to match the tone of Titan's work — spectral faces, fractured
+colour and acid-green light on near-black.
 
 ## Features
 
-- **Home page** with hero, value propositions and featured works
-- **Gallery** with category filtering (Painting / Photography / Sculpture /
-  Print) and price sorting
+- **Home** with hero, trust badges and featured works
+- **Gallery** with category filtering (Painting / Digital / Mixed Media) and
+  price sorting
 - **Artwork detail pages** with full metadata, related works and add-to-cart
 - **Shopping cart** with quantity controls, persisted to `localStorage`
 - **Checkout** flow with a demo order confirmation (no real payment is taken)
 - **About** and **Contact** pages
-- Elegant editorial design, sticky header with live cart count, mobile menu
-- Accessible markup, lazy-loaded imagery and reveal animations
+- Dark, atmospheric design: film-grain + vignette overlay, Fraunces display
+  type, electric-green accents, sticky header with live cart count
+- Auto-deploys to GitHub Pages on every push
 
 ## Getting started
 
@@ -23,35 +25,33 @@ npm install
 npm run dev      # http://localhost:3000
 ```
 
-Build for production:
+Build the static site:
 
 ```bash
-npm run build
-npm run start
+npm run build    # outputs ./out
 ```
 
-## Project structure
+## The catalogue & images
 
-```
-app/                 Routes (home, gallery, art/[slug], cart, checkout, about, contact)
-components/          Header, Footer, ArtworkCard, GalleryGrid, AddToCartButton
-context/CartContext  Cart state + localStorage persistence
-lib/artworks.ts      Artwork catalogue + helpers
-```
+All artwork is defined in [`lib/artworks.ts`](lib/artworks.ts) — title, medium,
+dimensions, price, category, description and image. Pages, filters and
+related-works update automatically from this list.
 
-## Customising the catalogue
+Artwork images live in [`public/artwork/`](public/artwork). Each piece currently
+uses a **palette-matched SVG placeholder** that echoes the real work's colours.
 
-All artwork lives in [`lib/artworks.ts`](lib/artworks.ts). Each entry has a
-title, artist, price, medium, dimensions, category, image URL and description.
-Add, edit or remove entries there — pages, the gallery filters and related-works
-sections all update automatically.
+### Swapping in the real photos
 
-Images currently reference royalty-free Unsplash photography as placeholders.
-Swap the `image` URLs for your own hosted artwork files.
+1. Add your real image to `public/artwork/`, e.g. `static-bloom.jpg`.
+2. In `lib/artworks.ts`, change that piece's `image` helper call — the `img()`
+   helper points at `/artwork/<slug>.svg`; update it to your file
+   (`/artwork/<slug>.jpg`). Local image paths are automatically prefixed with the
+   GitHub Pages base path via `NEXT_PUBLIC_BASE_PATH`.
+3. Commit and push — the site rebuilds and redeploys automatically.
 
 ## Notes on payments
 
 The checkout is a front-end demonstration: it validates the form and shows an
 order confirmation, but **does not process payments**. To take real orders,
-integrate a payment provider such as Stripe Checkout or PayPal at the
-`handleSubmit` step in [`app/checkout/page.tsx`](app/checkout/page.tsx).
+integrate a payment provider such as Stripe Checkout at the `handleSubmit` step
+in [`app/checkout/page.tsx`](app/checkout/page.tsx).

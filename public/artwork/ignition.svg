@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="ignition-g0"><stop offset="0%" stop-color="#c01e8a" stop-opacity="1"/><stop offset="100%" stop-color="#c01e8a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="ignition-g1"><stop offset="0%" stop-color="#7a1e9a" stop-opacity="1"/><stop offset="100%" stop-color="#7a1e9a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="ignition-g2"><stop offset="0%" stop-color="#9fe04a" stop-opacity="1"/><stop offset="100%" stop-color="#9fe04a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="ignition-g3"><stop offset="0%" stop-color="#d9a13a" stop-opacity="1"/><stop offset="100%" stop-color="#d9a13a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="ignition-g4"><stop offset="0%" stop-color="#0c0608" stop-opacity="1"/><stop offset="100%" stop-color="#0c0608" stop-opacity="0"/></radialGradient>
+    <radialGradient id="ignition-glow"><stop offset="0%" stop-color="#e6301a" stop-opacity="0.95"/><stop offset="60%" stop-color="#e6301a" stop-opacity="0.25"/><stop offset="100%" stop-color="#e6301a" stop-opacity="0"/></radialGradient>
+    <filter id="ignition-blur"><feGaussianBlur stdDeviation="48"/></filter>
+    <filter id="ignition-grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.14"/></feComponentTransfer><feComposite operator="in" in2="SourceGraphic"/></filter>
+    <radialGradient id="ignition-vig" cx="50%" cy="42%" r="75%"><stop offset="55%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.65"/></radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="#0c060c"/>
+  <g filter="url(#ignition-blur)">
+      <circle cx="400" cy="440" r="440" fill="url(#ignition-g0)" opacity="0.85"/>
+      <circle cx="330" cy="360" r="420" fill="url(#ignition-g1)" opacity="0.7"/>
+      <circle cx="560" cy="640" r="360" fill="url(#ignition-g2)" opacity="0.6"/>
+      <circle cx="250" cy="720" r="320" fill="url(#ignition-g3)" opacity="0.55"/>
+      <circle cx="470" cy="560" r="160" fill="url(#ignition-g4)" opacity="0.5"/>
+      <circle cx="430" cy="640" r="150" fill="url(#ignition-glow)"/>
+  </g>
+  <rect width="800" height="1000" filter="url(#ignition-grain)"/>
+  <rect width="800" height="1000" fill="url(#ignition-vig)"/>
+</svg>

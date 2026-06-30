@@ -45,7 +45,7 @@ export default async function ArtworkPage({
       </nav>
 
       <div className="grid gap-10 md:grid-cols-2">
-        <div className="overflow-hidden bg-black/5">
+        <div className="overflow-hidden border border-white/10 bg-white/5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={art.image}
@@ -67,7 +67,7 @@ export default async function ArtworkPage({
 
           <p className="mt-6 leading-relaxed text-stone">{art.description}</p>
 
-          <dl className="mt-8 grid grid-cols-2 gap-y-4 border-t border-black/10 pt-6 text-sm">
+          <dl className="mt-8 grid grid-cols-2 gap-y-4 border-t border-white/10 pt-6 text-sm">
             <dt className="text-stone">Medium</dt>
             <dd>{art.medium}</dd>
             <dt className="text-stone">Dimensions</dt>

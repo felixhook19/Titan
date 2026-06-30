@@ -7,12 +7,12 @@ const nextConfig = {
   basePath,
   assetPrefix: basePath || undefined,
   trailingSlash: true,
+  // Exposed to the client so raw <img src="/artwork/..."> can be base-path-prefixed.
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   images: {
     unoptimized: true,
-    remotePatterns: [
-      { protocol: "https", hostname: "images.unsplash.com" },
-      { protocol: "https", hostname: "picsum.photos" },
-    ],
   },
 };
 

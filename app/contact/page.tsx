@@ -11,11 +11,11 @@ export default function ContactPage() {
       <h1 className="mt-2 font-display text-5xl">Get in touch</h1>
       <p className="mt-4 max-w-xl text-lg leading-relaxed text-stone">
         Questions about a piece, a commission, or shipping to your country? Send
-        a note and we&apos;ll reply within two business days.
+        a note and the studio will reply within two business days.
       </p>
 
       {sent ? (
-        <div className="mt-10 border border-black/10 bg-white/40 px-6 py-12 text-center">
+        <div className="mt-10 border border-white/10 bg-white/[0.02] px-6 py-12 text-center">
           <h2 className="font-display text-3xl">Message sent</h2>
           <p className="mt-3 text-stone">
             Thank you for reaching out — we&apos;ll be in touch shortly.
@@ -35,7 +35,7 @@ export default function ContactPage() {
               <input
                 required
                 name="name"
-                className="w-full border border-black/15 bg-transparent px-3 py-2.5 text-sm outline-none focus:border-accent"
+                className="w-full border border-white/15 bg-transparent px-3 py-2.5 text-sm outline-none focus:border-accent"
               />
             </label>
             <label className="block">
@@ -44,7 +44,7 @@ export default function ContactPage() {
                 required
                 type="email"
                 name="email"
-                className="w-full border border-black/15 bg-transparent px-3 py-2.5 text-sm outline-none focus:border-accent"
+                className="w-full border border-white/15 bg-transparent px-3 py-2.5 text-sm outline-none focus:border-accent"
               />
             </label>
           </div>
@@ -52,7 +52,7 @@ export default function ContactPage() {
             <span className="mb-1 block text-sm text-stone">Subject</span>
             <input
               name="subject"
-              className="w-full border border-black/15 bg-transparent px-3 py-2.5 text-sm outline-none focus:border-accent"
+              className="w-full border border-white/15 bg-transparent px-3 py-2.5 text-sm outline-none focus:border-accent"
             />
           </label>
           <label className="block">
@@ -61,30 +61,27 @@ export default function ContactPage() {
               required
               name="message"
               rows={6}
-              className="w-full resize-y border border-black/15 bg-transparent px-3 py-2.5 text-sm outline-none focus:border-accent"
+              className="w-full resize-y border border-white/15 bg-transparent px-3 py-2.5 text-sm outline-none focus:border-accent"
             />
           </label>
-          <button
-            type="submit"
-            className="bg-ink px-7 py-3 text-sm uppercase tracking-widest text-canvas transition-colors hover:bg-accent"
-          >
+          <button type="submit" className="btn btn-primary">
             Send message
           </button>
         </form>
       )}
 
-      <div className="mt-12 grid gap-6 border-t border-black/10 pt-10 text-sm sm:grid-cols-3">
+      <div className="mt-12 grid gap-6 border-t border-white/10 pt-10 text-sm sm:grid-cols-3">
         <div>
           <p className="uppercase tracking-widest text-stone">Email</p>
-          <p className="mt-1">hello@atelier.gallery</p>
+          <p className="mt-1">studio@titan.gallery</p>
+        </div>
+        <div>
+          <p className="uppercase tracking-widest text-stone">Instagram</p>
+          <p className="mt-1">@gallerie.titan</p>
         </div>
         <div>
           <p className="uppercase tracking-widest text-stone">Studio</p>
-          <p className="mt-1">14 Linden Mews, London</p>
-        </div>
-        <div>
-          <p className="uppercase tracking-widest text-stone">Hours</p>
-          <p className="mt-1">Tue–Sat, by appointment</p>
+          <p className="mt-1">By appointment</p>
         </div>
       </div>
     </section>

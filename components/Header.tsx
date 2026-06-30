@@ -17,14 +17,14 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-canvas/85 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-canvas/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         <Link
           href="/"
-          className="font-display text-2xl tracking-tight"
+          className="text-xl font-semibold uppercase tracking-[0.4em] text-ink transition-colors hover:text-accent"
           onClick={() => setOpen(false)}
         >
-          Atelier
+          Titan
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -59,7 +59,7 @@ export function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-black/10 px-5 py-4 md:hidden">
+        <nav className="border-t border-white/10 px-5 py-4 md:hidden">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -84,7 +84,7 @@ function CartLink({ count }: { count: number }) {
     >
       Cart
       {count > 0 && (
-        <span className="absolute -right-4 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-medium text-white">
+        <span className="absolute -right-4 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-medium text-canvas">
           {count}
         </span>
       )}
